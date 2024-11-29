@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs5tl5mqklkup"]
+[gd_scene load_steps=11 format=3 uid="uid://cs5tl5mqklkup"]
 
 [ext_resource type="Texture2D" uid="uid://cd3pcuovd6lpw" path="res://World of Solaria Demo Pack Update 04/16x16/Tilesets/New/Solaria Demo Tiles.png" id="1_vhdpx"]
 [ext_resource type="Texture2D" uid="uid://b7yieig3m2c62" path="res://World of Solaria Demo Pack Update 04/16x16/Sprites/New/Chris Idle.png" id="2_40pqd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_i370q"]
-[ext_resource type="Texture2D" uid="uid://dk4b2jp2kyqpy" path="res://Sprites/fireball.png" id="4_rte4q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lgms"]
 texture = ExtResource("1_vhdpx")
@@ -394,6 +393,24 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_aoerk"]
+resource_name = "walkUp"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="Animation" id="Animation_nr126"]
 resource_name = "idleUp"
 length = 0.6
@@ -422,24 +439,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(),
 "update": 1,
 "values": []
-}
-
-[sub_resource type="Animation" id="Animation_aoerk"]
-resource_name = "walkUp"
-length = 0.6
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6hf0n"]
@@ -476,10 +475,3 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
 shape = SubResource("CircleShape2D_1eco1")
-
-[node name="WeaponBody" type="CharacterBody2D" parent="."]
-
-[node name="FireballSprite" type="Sprite2D" parent="WeaponBody"]
-position = Vector2(60.125, 3.25)
-scale = Vector2(0.0404192, 0.0462963)
-texture = ExtResource("4_rte4q")
