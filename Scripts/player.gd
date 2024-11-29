@@ -13,10 +13,10 @@ func _physics_process(_delta):
 @onready var _animated_sprite = $PlayerAnimation
 
 func _process(_delta):
-	if Input.is_action_pressed("ui_right"):
-		_animated_sprite.play("runRight")
+	if Input.is_action_pressed("ui_up"):
+		_animated_sprite.play("walkUp")
 	else:
-		_animated_sprite.play("idleRight")
+		_animated_sprite.play("idleUp")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
