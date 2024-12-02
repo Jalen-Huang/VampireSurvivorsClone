@@ -24,6 +24,7 @@ func SpawnObject():
 	var fireball = scene.instantiate()
 	add_sibling(fireball)
 	fireball.global_position = self.global_position
+	fireball.look_at(get_global_mouse_position())
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

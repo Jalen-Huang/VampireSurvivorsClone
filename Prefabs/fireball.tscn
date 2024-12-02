@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8tso7vaei755"]
 
-[ext_resource type="Script" path="res://weapon_body.gd" id="1_f233g"]
-[ext_resource type="Texture2D" uid="uid://dk4b2jp2kyqpy" path="res://Sprites/fireball.png" id="4_rte4q"]
+[ext_resource type="Script" path="res://weapon_body.gd" id="1_4a2l8"]
+[ext_resource type="Texture2D" uid="uid://dk4b2jp2kyqpy" path="res://Sprites/fireball.png" id="2_vlcfe"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="WeaponBody" type="CharacterBody2D" parent="."]
-script = ExtResource("1_f233g")
+script = ExtResource("1_4a2l8")
 
 [node name="FireballSprite" type="Sprite2D" parent="WeaponBody"]
 position = Vector2(0.125002, 0.25)
 scale = Vector2(0.0404192, 0.0462963)
-texture = ExtResource("4_rte4q")
+texture = ExtResource("2_vlcfe")
