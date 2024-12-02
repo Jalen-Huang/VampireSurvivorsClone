@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs5tl5mqklkup"]
+[gd_scene load_steps=11 format=3 uid="uid://cs5tl5mqklkup"]
 
-[ext_resource type="Texture2D" uid="uid://cd3pcuovd6lpw" path="res://World of Solaria Demo Pack Update 04/16x16/Tilesets/New/Solaria Demo Tiles.png" id="1_vhdpx"]
-[ext_resource type="Texture2D" uid="uid://b7yieig3m2c62" path="res://World of Solaria Demo Pack Update 04/16x16/Sprites/New/Chris Idle.png" id="2_40pqd"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="2_i370q"]
-[ext_resource type="Texture2D" uid="uid://dk4b2jp2kyqpy" path="res://Sprites/fireball.png" id="4_rte4q"]
+[ext_resource type="Texture2D" uid="uid://cd3pcuovd6lpw" path="res://World of Solaria Demo Pack Update 04/16x16/Tilesets/New/Solaria Demo Tiles.png" id="1_8ghd6"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_lde0x"]
+[ext_resource type="Texture2D" uid="uid://b7yieig3m2c62" path="res://World of Solaria Demo Pack Update 04/16x16/Sprites/New/Chris Idle.png" id="3_h3i4u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lgms"]
-texture = ExtResource("1_vhdpx")
+texture = ExtResource("1_8ghd6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -462,10 +461,10 @@ layer_0/tile_data = PackedInt32Array(-65536, 393216, 1, 0, 393216, 1, 65536, 327
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
-script = ExtResource("2_i370q")
+script = ExtResource("2_lde0x")
 
 [node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
-texture = ExtResource("2_40pqd")
+texture = ExtResource("3_h3i4u")
 hframes = 6
 vframes = 4
 
@@ -477,9 +476,5 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
 shape = SubResource("CircleShape2D_1eco1")
 
-[node name="WeaponBody" type="CharacterBody2D" parent="."]
-
-[node name="FireballSprite" type="Sprite2D" parent="WeaponBody"]
-position = Vector2(60.125, 3.25)
-scale = Vector2(0.0404192, 0.0462963)
-texture = ExtResource("4_rte4q")
+[node name="AttackTimer" type="Timer" parent="PlayerBody"]
+autostart = true
