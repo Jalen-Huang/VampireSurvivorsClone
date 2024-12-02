@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c11n4rj25suc8"]
+
+[ext_resource type="Texture2D" uid="uid://mlhfisjpgit2" path="res://icon.svg" id="1_du7j0"]
+[ext_resource type="Script" path="res://Scripts/enemy_spawner.gd" id="3_w4ta2"]
+
+[node name="EthanTest" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SumGuy" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(8.90419e-07, 0.413707, 0.414761, 1)
+self_modulate = Color(0.402382, 0.394049, 0.875297, 1)
+position = Vector2(2, -5)
+texture = ExtResource("1_du7j0")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("3_w4ta2")
