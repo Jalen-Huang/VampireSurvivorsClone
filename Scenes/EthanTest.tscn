@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c11n4rj25suc8"]
+[gd_scene load_steps=3 format=3 uid="uid://vplhrh856dcs"]
 
 [ext_resource type="Texture2D" uid="uid://mlhfisjpgit2" path="res://icon.svg" id="1_du7j0"]
 [ext_resource type="Script" path="res://Scripts/enemy_spawner.gd" id="3_w4ta2"]
