@@ -3,13 +3,15 @@ extends CharacterBody2D
 @export var speed = 100
 @onready var scene = preload("res://Prefabs/fireball.tscn")
 @onready var skillScene1 = preload ("res://Prefabs/skill1.tscn")
+@onready var skillScene2 = preload ("res://Prefabs/skill2.tscn")
+@onready var skillScene3 = preload ("res://Prefabs/skill3.tscn")
 
 var canSkill1 = true
 var canSkill2 = true
 var canSkill3 = true
 
 func get_input():
-	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_direction = Input.get_vector("left","right","up","down")
 	velocity = input_direction * speed
 
 func _physics_process(_delta):
@@ -21,10 +23,10 @@ func _process(_delta):
 		skill_action(skillScene1, $SkillTimer1, canSkill1, 1)
 	
 	elif Input.is_action_just_pressed("Skill2"):
-		skill_action(skillScene1, $SkillTimer2, canSkill2, 2)
+		skill_action(skillScene2, $SkillTimer2, canSkill2, 2)
 		
 	elif Input.is_action_just_pressed("Skill3"):
-		skill_action(skillScene1, $SkillTimer3, canSkill3, 3)
+		skill_action(skillScene3, $SkillTimer3, canSkill3, 3)
 
 func skill_action(skillScene, skillTimer, canSkill, skillCase):
 	if (canSkill):
