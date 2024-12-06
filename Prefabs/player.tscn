@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2fe7qplxhenc"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_wh733"]
+[ext_resource type="Texture2D" uid="uid://b7yieig3m2c62" path="res://World of Solaria Demo Pack Update 04/16x16/Sprites/New/Chris Idle.png" id="2_lwfx8"]
+
+[sub_resource type="Animation" id="Animation_hh5bn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_nr126"]
+resource_name = "idleUp"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_aoerk"]
+resource_name = "walkUp"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6hf0n"]
+_data = {
+"RESET": SubResource("Animation_hh5bn"),
+"idleUp": SubResource("Animation_nr126"),
+"walkUp": SubResource("Animation_aoerk")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbfko"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerBody" type="CharacterBody2D" parent="."]
+script = ExtResource("1_wh733")
+
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerBody"]
+texture = ExtResource("2_lwfx8")
+hframes = 6
+vframes = 4
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="PlayerBody"]
+libraries = {
+"": SubResource("AnimationLibrary_6hf0n")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
+shape = SubResource("CircleShape2D_xbfko")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody"]
+
+[node name="AttackTimer" type="Timer" parent="PlayerBody"]
+autostart = true
+
+[node name="SkillTimer1" type="Timer" parent="PlayerBody"]
+
+[node name="SkillTimer2" type="Timer" parent="PlayerBody"]
+
+[node name="SkillTimer3" type="Timer" parent="PlayerBody"]

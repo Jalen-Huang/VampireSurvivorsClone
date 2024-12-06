@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var skillScene1 = preload ("res://Prefabs/skill1.tscn")
 @onready var skillScene2 = preload ("res://Prefabs/skill2.tscn")
 @onready var skillScene3 = preload ("res://Prefabs/skill3.tscn")
+@onready var playerScene = preload("res://Prefabs/player.tscn")
+
 
 var canSkill1 = true
 var canSkill2 = true
@@ -61,6 +63,9 @@ func _ready() -> void:
 	skillTimer1.timeout.connect(_on_skill1Timer_timeout)
 	skillTimer2.timeout.connect(_on_skill2Timer_timeout)
 	skillTimer3.timeout.connect(_on_skill3Timer_timeout)
+	var player = playerScene.instantiate()
+	add_sibling(player)
+	player.global_position = self.global_position
 
 func _on_attackTimer_timeout():
 	#SpawnObject()
